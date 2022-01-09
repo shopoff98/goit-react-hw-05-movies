@@ -6,6 +6,7 @@ import {
 } from "../../styled/common/MovieDedetails/MovieDedetails.styled";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function MovieInfo({ movie }) {
   const navigate = useNavigate();
@@ -63,3 +64,22 @@ export default function MovieInfo({ movie }) {
     </>
   );
 }
+
+MovieInfo.propTypes = {
+  moviee: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      overview: PropTypes.string.isRequired,
+      vote_average: PropTypes.number.isRequired,
+      release_date: PropTypes.string.isRequired,
+      genres: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          id: PropTypes.number.isRequired,
+        })
+      ),
+    })
+  ),
+};

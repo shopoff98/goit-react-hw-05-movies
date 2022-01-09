@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import PropTypes from "prop-types";
 
 export default function SearchInput({ onSubmit }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,3 +32,7 @@ export default function SearchInput({ onSubmit }) {
     </form>
   );
 }
+
+SearchInput.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
